@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Text, TextInput, View, TouchableOpacity, StyleSheet, Pressable, Alert } from 'react-native';
 
-export default function LoginDetails() {
+export default function LoginDetails({navigation}) {
     const [loginDetails, setLoginDetails] = useState({ email: '', password: '', confirmPassword: '' });
 
     // Email Validation
@@ -43,6 +43,10 @@ export default function LoginDetails() {
         Alert.alert('Success', 'Your details have been submitted successfully!');
     };
 
+    const SurveyFormHandler = () => {
+        navigation.navigate('DiseasesScreen');
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.innerContainer}>
@@ -83,7 +87,10 @@ export default function LoginDetails() {
 
                     <View style={styles.accountContainer}>
                         <Text style={styles.forgotPassword}>Already have an account? </Text>
-                        <Pressable style={styles.loginLink}>
+                        <Pressable 
+                            style={styles.loginLink}
+                            onPress={SurveyFormHandler}
+                        >
                             <Text style={styles.loginLinkText}>Login</Text>
                         </Pressable>
                     </View>

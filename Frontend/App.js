@@ -3,22 +3,15 @@ import { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import PagerComponent from './components/PagerComponent';
-import AnimatedSplashScreen from './screens/AnimatedSplashScreen';
 import GettingStartedScreen from './screens/GettingStarted';
 import LoginPage from './components/LoginPage';
+import QuestionsScreen from './screens/QuestionsScreen';
+import DiseasesScreen from './screens/DiseasesScreen';
 
 const Stack = createStackNavigator();
 
 export default function App() {
-    // State to track if splash animation is complete
-    const [isSplashAnimationComplete, setSplashAnimationComplete] = useState(false);
 
-    // Conditional rendering: Show AnimatedSplashScreen first
-    if (!isSplashAnimationComplete) {
-        return (
-            <AnimatedSplashScreen onFinish={() => setSplashAnimationComplete(true)} />
-        );
-    }
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Pager">
@@ -37,6 +30,16 @@ export default function App() {
                     component={LoginPage}
                     options={{ headerShown: false }}
                 />
+                <Stack.Screen
+                name="DiseasesScreen"
+                component={DiseasesScreen}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="QuestionsScreen"
+                component={QuestionsScreen}
+                options={{ headerShown: false }}
+            />
             </Stack.Navigator>
         </NavigationContainer>
     );

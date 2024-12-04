@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import PagerView from 'react-native-pager-view';
-import PrimaryButton from './PrimaryButton';
+import Icon from 'react-native-vector-icons/Ionicons';
 import DetailScreenOne from '../screens/DetailScreenOne';
 import DetailScreenTwo from '../screens/DetailScreenTwo';
 import DetailScreenThree from '../screens/DetailScreenThree';
@@ -44,7 +44,10 @@ export default function PagerComponent({ navigation }) {
             </View>
             <View style={styles.button}>
                 {currentPage === 2 && 
-                <PrimaryButton onPress={goToGettingStarted}>continue</PrimaryButton> }
+                <TouchableOpacity onPress={goToGettingStarted}>
+                    <Icon name="arrow-forward" size={40} color="#5EA2DC" />
+                </TouchableOpacity>
+               }
                 
             </View>
         </View>
@@ -80,8 +83,7 @@ const styles = StyleSheet.create({
     },
     button: {
         position: 'absolute',
-        right: 20,
-        bottom: 30,
-        width: 120
+        right: 30,
+        bottom: 40,
     }
 });

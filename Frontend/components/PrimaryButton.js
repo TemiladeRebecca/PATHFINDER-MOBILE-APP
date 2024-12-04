@@ -1,6 +1,4 @@
 import { Pressable, View, Text, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-
 
 export default function PrimaryButton({children, onPress}) {
     return(
@@ -10,7 +8,7 @@ export default function PrimaryButton({children, onPress}) {
             style={({pressed}) => pressed ? [styles.buttonInnerContainer, styles.pressed] : styles.buttonInnerContainer}>
                 <View style={styles.contentContainer}>
                     <Text style={styles.buttontextContainer}>{children}</Text>
-                    <Icon name="arrow-forward" size={25} color="white" style={styles.icon} />
+                    
                 </View>    
         </Pressable>
        </View> 
