@@ -3,8 +3,8 @@ const questionData = {
       {
         id: 1,
         question: "What is the main source of water in this area?",
-        placeholder: "e.g., Borehole, River, Contaminated",
-        type: "text",
+        type: "radio",
+        options: ['Borehole', 'River']
       },
       {
         id: 2,
@@ -15,16 +15,16 @@ const questionData = {
       {
         id: 3,
         question: "Are there any sanitation issues in this area? (Yes/No)",
-        placeholder: "Yes or No",
-        type: "text",
+        type: "radio",
+        options: ['Yes', 'No']
       },
     ],
     Cholera: [
       {
         id: 1,
         question: "What is the main source of water in this area?",
-        placeholder: "e.g., Borehole, River, Contaminated",
-        type: "text",
+        type: "radio",
+        options: ['Borehole', 'River']
       },
       {
         id: 2,
@@ -35,8 +35,8 @@ const questionData = {
       {
         id: 3,
         question: "Is the drinking water treated before use?",
-        placeholder: "e.g., boiled, chlorinated, filtered",
-        type: "text",
+        type: "radio",
+        options: ['Boiled', 'Chlorinated', 'Filtered']
       },
     ],
   };
