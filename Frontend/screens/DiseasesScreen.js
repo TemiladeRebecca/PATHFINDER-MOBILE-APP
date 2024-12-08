@@ -4,19 +4,19 @@ import { View, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native
 const diseases = ['Cholera', 'Diarrhea'];
 
 export default function DiseasesScreen({ navigation }) {
-    const diseaseSelectHandler = (disease) => {
-        navigation.navigate('QuestionsScreen', { disease });
+    const diseaseSelectHandler = (diseaseItem) => {
+        navigation.navigate('QuestionsScreen', { diseaseItem });
     };
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Select a Disease</Text>
+            <Text style={styles.title}>SELECT A DISEASE</Text>
             <FlatList
                 data={diseases}
                 keyExtractor={(item) => item}
                 renderItem={({ item }) => (
                     <TouchableOpacity
-                        style={styles.diseaseItem}
+                        style={styles.diseaseComponent}
                         onPress={() => diseaseSelectHandler(item)}
                     >
                         <Text style={styles.diseaseText}>{item}</Text>
@@ -38,10 +38,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#303640',
         textAlign: 'center',
-        marginTop: 50,
+        marginTop: 60,
         marginBottom: 20,
     },
-    diseaseItem: {
+    diseaseComponent: {
         padding: 15,
         backgroundColor: '#5EA2DC',
         marginBottom: 15,
