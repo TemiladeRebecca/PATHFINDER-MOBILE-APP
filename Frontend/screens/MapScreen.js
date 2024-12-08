@@ -1,10 +1,12 @@
+import { View, Text, StyleSheet } from "react-native";
+import { useState, useEffect } from "react";
 import * as Location from 'expo-location';
 import { getStateByCoordinates } from "../utils/geoJsonHelper";
 import { requestLocationPermission } from '../utils/locationPermission';
 
 
 export default function MapWithOutBreak() {
-    const [location, setLocation] = useState(null);
+    // const [location, setLocation] = useState(null);
     const [outbreakStates, setOutbreakStates] = useState([]);
   
     // Function to check if the user reports an outbreak (for demonstration, assume this returns a boolean)
@@ -27,10 +29,12 @@ export default function MapWithOutBreak() {
         if (hasPermission) {
           const { coords } = await Location.getCurrentPositionAsync();
           const { latitude, longitude } = coords;
-          setLocation({ latitude, longitude });
+          console.log(`Latitude: ${latitude} Longitude: ${longitude}`);
+          // setLocation({ latitude, longitude });
     
           // Get the state name based on coordinates
-          const stateName = getStateByCoordinates(location.latitude, location.longitude);
+          const stateName = getStateByCoordinates(latitude, longitude);
+          console.log(`State name is ${stateName}`);
     
           // Check if an outbreak was reported in the state
           if (stateName) {
@@ -51,10 +55,24 @@ export default function MapWithOutBreak() {
     const isOutbreakInState = (state) => outbreakStates.includes(state);
   
     return (
-        <View>
-            // Logic goes here
+        <View style={styles.Container}>
+            <Text style={styles.TextContainer}>
+                This is the Map screen
+              </Text>
         </View>
     );
   };
+
+  const styles = StyleSheet.create({
+    Container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    TextContainer: { 
+      fontSize: 32, 
+      fontWeight: 'bold'
+    }
+  })
   
   
