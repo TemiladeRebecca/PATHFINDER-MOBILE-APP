@@ -1,7 +1,7 @@
 import * as turf from '@turf/turf';
+import stateGeoJson from '../assets/states.geojson';
 
-const stateGeoJson = require('../assets/states.geojson');
-
+console.log(`state geojson file: ${stateGeoJson}`);
 
 export const getStateByCoordinates = (lat, lng) => {
     const point = turf.point([lat, lng]);
