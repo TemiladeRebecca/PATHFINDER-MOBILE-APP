@@ -19,12 +19,16 @@ export default function App() {
 
     const ToggleMapUpdateHandler = () => {
         if (isMapUpdated) {
-            navigationRef.current?.goBack()
+            if (navigationRef.current?.canGoBack()) {
+                navigationRef.current.goBack();
+            } else {
+                navigationRef.current?.navigate('Pager');
+            }
         } else {
-            navigationRef.current?.navigate('MapScreen')
+            navigationRef.current?.navigate('MapScreen');
         }
-        setIsMapUpdated((prevValue) => !prevValue)
-    }
+        setIsMapUpdated((prevValue) => !prevValue);
+    };
 
     return (
         <NavigationContainer ref={navigationRef}>
