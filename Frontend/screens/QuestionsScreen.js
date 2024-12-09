@@ -20,7 +20,6 @@ export default function QuestionScreen({ navigation, route }) {
 
   const handleOptionSelect = (id, option) => {
     setResponses((prev) => ({ ...prev, [id]: option }));
-    console.log(responses);
   };
 
   return (
